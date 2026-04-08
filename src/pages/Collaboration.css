@@ -1,0 +1,92 @@
+.collab-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 4rem 1.5rem;
+  align-items: start;
+}
+
+.collab-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.collab-info p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.collab-list {
+  list-style: none;
+  padding: 0;
+}
+
+.collab-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.list-icon {
+  color: var(--color-primary);
+}
+
+.collab-form-wrapper {
+  padding: 3rem;
+  background-color: var(--color-surface);
+}
+
+.collab-form-wrapper h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.btn-submit {
+  width: 100%;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  padding: 1rem;
+}
+
+@media (max-width: 900px) {
+  .collab-container {
+    grid-template-columns: 1fr;
+  }
+}

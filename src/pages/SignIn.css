@@ -1,0 +1,178 @@
+.signin-page {
+  padding: 8rem 0 5rem;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+  background-image: radial-gradient(var(--color-primary) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0;
+}
+
+.signin-page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: white;
+  opacity: 0.95;
+  z-index: 0;
+}
+
+.auth-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.auth-panel {
+  padding: 3rem;
+  background-color: var(--color-surface);
+}
+
+.auth-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.auth-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: var(--color-text);
+  opacity: 0.5;
+}
+
+.input-with-icon input {
+  padding-left: 3rem;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
+.forgot-password:hover {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.auth-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.toggle-auth-mode {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.toggle-auth-mode:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar Community Preview */
+.auth-sidebar {
+  display: flex;
+  align-items: center;
+}
+
+.community-preview {
+  background: var(--color-secondary);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-icon {
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.community-preview h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+.community-preview p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+
+.community-preview ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 3rem;
+  flex-grow: 1;
+}
+
+.community-preview li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.community-preview li::before {
+  content: '•';
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+.explore-cta {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 2rem;
+}
+
+.explore-cta p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.explore-cta .btn {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .auth-container {
+    grid-template-columns: 1fr;
+  }
+}
