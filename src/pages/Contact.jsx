@@ -15,7 +15,7 @@ const Contact = () => {
 
   return (
     <div className="contact-page page-transition-enter-active">
-      <div className="page-header pattern-bg">
+      <div className="page-header pattern-bg" data-component="src/pages/Contact.jsx (Header)">
         <div className="container">
           <h1>Get in Touch</h1>
           <p>Questions about classes, artworks, or just want to say hi? Send me a message.</p>
@@ -23,7 +23,7 @@ const Contact = () => {
       </div>
 
       <div className="container contact-container">
-        <div className="contact-info">
+        <div className="contact-info" data-component="src/pages/Contact.jsx (Info)">
           <div className="info-card">
             <MapPin className="info-icon" />
             <h3>Studio Location</h3>
@@ -50,7 +50,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="contact-form-wrapper glass-panel">
+        <div className="contact-form-wrapper glass-panel" data-component="src/pages/Contact.jsx (Form)">
           <h2>Send a Message</h2>
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">

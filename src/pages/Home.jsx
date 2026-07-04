@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="home-page">
       {/* Hero Section */}
-      <section className="hero-section">
+      <section className="hero-section" data-component="src/pages/Home.jsx (Hero Section)">
         <div className="container hero-container">
           <div className="hero-image-wrapper">
             <div className="hero-blob-bg"></div>
@@ -38,7 +38,7 @@ const Home = () => {
       </section>
 
       {/* Feature Cards Section */}
-      <section className="features-section texture-overlay">
+      <section className="features-section texture-overlay" data-component="src/pages/Home.jsx (Features Section)">
         <div className="container features-container">
           <Link to="/classes" className="feature-card class-card">
             <div className="card-content">
@@ -63,7 +63,7 @@ const Home = () => {
       </section>
 
       {/* Quick Access Grid Section */}
-      <section className="quick-access-section">
+      <section className="quick-access-section" data-component="src/pages/Home.jsx (Discover Grid)">
         <div className="container">
           <h2 className="section-title">Discover</h2>
           <div className="quick-grid">

@@ -28,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`} data-component="src/components/Navbar.jsx">
       <div className="container nav-container">
         <Link to="/" className="brand-logo">
           Karuna Artwork

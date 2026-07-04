@@ -62,7 +62,7 @@ const Classes = () => {
   if (loading) {
     return (
       <div className="classes-page page-transition-enter-active">
-        <div className="page-header pattern-bg">
+        <div className="page-header pattern-bg" data-component="src/pages/Classes.jsx (Header)">
           <div className="container">
             <h1>Learning with Karuna</h1>
             <p>Discover classes designed to ignite your creativity, regardless of your skill level.</p>
@@ -77,7 +77,7 @@ const Classes = () => {
 
   return (
     <div className="classes-page page-transition-enter-active">
-      <div className="page-header pattern-bg">
+      <div className="page-header pattern-bg" data-component="src/pages/Classes.jsx (Header)">
         <div className="container">
           <h1>Learning with Karuna</h1>
           <p>Discover classes designed to ignite your creativity, regardless of your skill level.</p>
@@ -85,7 +85,7 @@ const Classes = () => {
       </div>
 
       <div className="container">
-        <div className="filter-bar glass-panel">
+        <div className="filter-bar glass-panel" data-component="src/pages/Classes.jsx (Filter Bar)">
           <div className="filter-group">
             <Filter size={20} className="filter-icon" />
             <span className="filter-label">Filter by:</span>
@@ -107,7 +107,7 @@ const Classes = () => {
           </div>
         </div>
 
-        <div className="classes-grid">
+        <div className="classes-grid" data-component="src/pages/Classes.jsx (Classes Grid)">
           {filteredClasses.length > 0 ? (
             filteredClasses.map((cls) => (
               <div key={cls.id} className="class-card-item">

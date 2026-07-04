@@ -8,6 +8,7 @@ import Lessons from './pages/Lessons';
 import Collaboration from './pages/Collaboration';
 import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
+import DevInspector from './components/DevInspector';
 import { useEffect } from 'react';
 
 function ScrollToTop() {
@@ -25,6 +26,7 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="app">
+        <DevInspector />
         <Navbar />
         <main className="main-content">
           <Routes>

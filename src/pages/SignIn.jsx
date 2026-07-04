@@ -70,7 +70,7 @@ const SignIn = () => {
     <div className="signin-page page-transition-enter-active">
       <div className="auth-container container">
         
-        <div className="auth-panel glass-panel">
+        <div className="auth-panel glass-panel" data-component="src/pages/SignIn.jsx (Auth Form)">
           <div className="auth-header">
             <h2>{isSignUp ? 'Join the Community' : 'Welcome Back'}</h2>
             <p>
@@ -151,7 +151,7 @@ const SignIn = () => {
           </div>
         </div>
 
-        <div className="auth-sidebar">
+        <div className="auth-sidebar" data-component="src/pages/SignIn.jsx (Info Sidebar)">
           <div className="community-preview">
             <div className="preview-icon">
               <ShieldCheck size={40} />

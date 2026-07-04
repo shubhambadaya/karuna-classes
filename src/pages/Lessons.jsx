@@ -5,7 +5,7 @@ const Lessons = () => {
   return (
     <div className="lessons-page page-transition-enter-active">
       {/* Philosophy hero */}
-      <section className="philosophy-section texture-overlay">
+      <section className="philosophy-section texture-overlay" data-component="src/pages/Lessons.jsx (Philosophy Hero)">
         <div className="container">
           <div className="philosophy-content">
             <Sparkles size={48} className="icon-accent" />
@@ -21,7 +21,7 @@ const Lessons = () => {
       </section>
 
       {/* What you learn */}
-      <section className="what-you-learn">
+      <section className="what-you-learn" data-component="src/pages/Lessons.jsx (What You Learn)">
         <div className="container">
           <h2 className="section-title">What You Will Learn</h2>
           <div className="learn-grid">
@@ -45,7 +45,7 @@ const Lessons = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="testimonials-section">
+      <section className="testimonials-section" data-component="src/pages/Lessons.jsx (Testimonials)">
         <div className="container">
           <h2 className="section-title">Student Stories</h2>
           <div className="testimonial-grid">

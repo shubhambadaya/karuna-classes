@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer texture-overlay">
+    <footer className="footer texture-overlay" data-component="src/components/Footer.jsx">
       <div className="container footer-content">
         <div className="footer-brand">
           <h2>Karuna Artwork</h2>

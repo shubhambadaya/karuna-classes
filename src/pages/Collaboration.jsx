@@ -23,7 +23,7 @@ const Collaboration = () => {
 
   return (
     <div className="collaboration-page page-transition-enter-active">
-      <div className="page-header pattern-bg">
+      <div className="page-header pattern-bg" data-component="src/pages/Collaboration.jsx (Header)">
         <div className="container">
           <h1>Let's Create Together</h1>
           <p>Open for exhibitions, brand partnerships, and custom commissions.</p>
@@ -31,7 +31,7 @@ const Collaboration = () => {
       </div>
 
       <div className="container collab-container">
-        <div className="collab-info">
+        <div className="collab-info" data-component="src/pages/Collaboration.jsx (Info)">
           <h2>Why Collaborate?</h2>
           <p>
             I believe that bringing different perspectives together results in the most compelling art. 
@@ -46,7 +46,7 @@ const Collaboration = () => {
           </ul>
         </div>
 
-        <div className="collab-form-wrapper glass-panel">
+        <div className="collab-form-wrapper glass-panel" data-component="src/pages/Collaboration.jsx (Form)">
           <h2>Start a Conversation</h2>
           <form onSubmit={handleSubmit} className="collab-form">
             <div className="form-group">

@@ -53,7 +53,7 @@ const Artworks = () => {
   if (loading) {
     return (
       <div className="artworks-page page-transition-enter-active">
-        <div className="page-header pattern-bg">
+        <div className="page-header pattern-bg" data-component="src/pages/Artworks.jsx (Header)">
           <div className="container">
             <h1>My Gallery</h1>
             <p>A curated collection of my recent works and commissions.</p>
@@ -68,7 +68,7 @@ const Artworks = () => {
 
   return (
     <div className="artworks-page page-transition-enter-active">
-      <div className="page-header pattern-bg">
+      <div className="page-header pattern-bg" data-component="src/pages/Artworks.jsx (Header)">
         <div className="container">
           <h1>My Gallery</h1>
           <p>A curated collection of my recent works and commissions.</p>
@@ -76,7 +76,7 @@ const Artworks = () => {
       </div>
 
       <div className="container">
-        <div className="portfolio-tabs">
+        <div className="portfolio-tabs" data-component="src/pages/Artworks.jsx (Portfolio Tabs)">
           {categories.map(cat => (
             <button 
               key={cat} 
@@ -88,7 +88,7 @@ const Artworks = () => {
           ))}
         </div>
 
-        <div className="masonry-grid">
+        <div className="masonry-grid" data-component="src/pages/Artworks.jsx (Gallery Grid)">
           {filteredArts.map(art => (
             <div key={art.id} className="masonry-item" onClick={() => setLightboxImg(art)}>
               <img src={art.img} alt={art.title} loading="lazy" />
