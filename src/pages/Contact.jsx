@@ -37,15 +37,15 @@ const Contact = () => {
           <div className="info-card">
             <Mail className="info-icon" />
             <h3>Email Me</h3>
-            <p>hello@karunaartwork.com<br />Usually replies within 24 hours.</p>
+            <p>hello@karunagupta.com<br />Usually replies within 24 hours.</p>
           </div>
 
           <div className="social-connect">
             <h3>Connect Online</h3>
             <div className="social-links-large">
-              <a href="#" className="social-btn">Instagram</a>
-              <a href="#" className="social-btn">Twitter</a>
-              <a href="#" className="social-btn">Facebook</a>
+              <a href="https://www.instagram.com/karuna.artwork" target="_blank" rel="noopener noreferrer" className="social-btn">Instagram</a>
+              <a href="https://www.linkedin.com/in/karunaartwork/" target="_blank" rel="noopener noreferrer" className="social-btn">LinkedIn</a>
+              <a href="https://www.youtube.com/@karunaartwork4996" target="_blank" rel="noopener noreferrer" className="social-btn">YouTube</a>
             </div>
           </div>
         </div>

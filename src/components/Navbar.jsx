@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,14 @@ const Navbar = () => {
   }, []);
 
   const toggleMenu = () => setMobileMenuOpen(!mobileMenuOpen);
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+    } catch (error) {
+      console.error('Error signing out:', error);
+    }
+  };
 
   return (
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
@@ -33,14 +43,36 @@ const Navbar = () => {
           <NavLink to="/contact" onClick={toggleMenu}>Contact</NavLink>
           
           <div className="nav-actions mobile-only">
-            <Link to="/signin" className="btn btn-outline" onClick={toggleMenu}>Sign In</Link>
-            <Link to="/classes" className="btn btn-primary" onClick={toggleMenu}>Subscribe</Link>
+            {user ? (
+              <>
+                <span className="user-greet" style={{ display: 'block', marginBottom: '1rem', color: 'var(--color-terracotta)', fontWeight: '500' }}>
+                  Hi, {user.user_metadata?.full_name || user.email.split('@')[0]}
+                </span>
+                <button onClick={() => { handleSignOut(); toggleMenu(); }} className="btn btn-outline" style={{ width: '100%' }}>Sign Out</button>
+              </>
+            ) : (
+              <>
+                <Link to="/signin" className="btn btn-outline" onClick={toggleMenu}>Sign In</Link>
+                <Link to="/classes" className="btn btn-primary" onClick={toggleMenu}>Subscribe</Link>
+              </>
+            )}
           </div>
         </nav>
 
         <div className="nav-actions desktop-only">
-          <Link to="/signin" className="btn btn-outline" style={{ marginRight: '1rem' }}>Sign In</Link>
-          <Link to="/classes" className="btn btn-primary">Subscribe</Link>
+          {user ? (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className="user-greet" style={{ marginRight: '1rem', color: 'var(--color-terracotta)', fontWeight: '500' }}>
+                Hi, {user.user_metadata?.full_name || user.email.split('@')[0]}
+              </span>
+              <button onClick={handleSignOut} className="btn btn-outline">Sign Out</button>
+            </div>
+          ) : (
+            <>
+              <Link to="/signin" className="btn btn-outline" style={{ marginRight: '1rem' }}>Sign In</Link>
+              <Link to="/classes" className="btn btn-primary">Subscribe</Link>
+            </>
+          )}
         </div>
 
         <button className="mobile-toggle" onClick={toggleMenu}>

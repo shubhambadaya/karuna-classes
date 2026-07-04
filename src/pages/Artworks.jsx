@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, ExternalLink } from 'lucide-react';
+import { supabase } from '../supabaseClient';
 import './Artworks.css';
 
 const ART_DATA = [
@@ -12,14 +13,58 @@ const ART_DATA = [
 ];
 
 const Artworks = () => {
+  const [artworks, setArtworks] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('All');
   const [lightboxImg, setLightboxImg] = useState(null);
 
   const categories = ['All', 'Illustration', 'Paintings', 'Custom Work'];
 
+  useEffect(() => {
+    const fetchArtworks = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('artworks')
+          .select('*')
+          .order('id', { ascending: true });
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          setArtworks(data);
+        } else {
+          setArtworks(ART_DATA);
+        }
+      } catch (err) {
+        console.error('Error fetching artworks:', err);
+        setArtworks(ART_DATA);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArtworks();
+  }, []);
+
   const filteredArts = activeTab === 'All' 
-    ? ART_DATA 
-    : ART_DATA.filter(art => art.category === activeTab);
+    ? artworks 
+    : artworks.filter(art => art.category === activeTab);
+
+  if (loading) {
+    return (
+      <div className="artworks-page page-transition-enter-active">
+        <div className="page-header pattern-bg">
+          <div className="container">
+            <h1>My Gallery</h1>
+            <p>A curated collection of my recent works and commissions.</p>
+          </div>
+        </div>
+        <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '8rem 2rem' }}>
+          <div className="loading-spinner" style={{ fontSize: '1.25rem', color: 'var(--color-sage)' }}>Loading gallery...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="artworks-page page-transition-enter-active">

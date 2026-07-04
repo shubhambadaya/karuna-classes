@@ -1,10 +1,70 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { User, Mail, Lock, ArrowRight, ShieldCheck } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 import './SignIn.css';
 
 const SignIn = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const { signIn, signUp } = useAuth();
+  const navigate = useNavigate();
+
+  const handleToggleMode = () => {
+    setIsSignUp(!isSignUp);
+    setError('');
+    setSuccess('');
+    setEmail('');
+    setPassword('');
+    setFullName('');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setSuccess('');
+    setLoading(true);
+
+    if (isSignUp && !fullName.trim()) {
+      setError('Please enter your full name.');
+      setLoading(false);
+      return;
+    }
+
+    try {
+      if (isSignUp) {
+        const { data, error: signUpErr } = await signUp(email, password, { full_name: fullName });
+        if (signUpErr) throw signUpErr;
+
+        if (data?.session) {
+          setSuccess('Account created successfully! Logging you in...');
+          setTimeout(() => navigate('/'), 1500);
+        } else {
+          setSuccess('Registration successful! Please check your email to confirm your account.');
+          setEmail('');
+          setPassword('');
+          setFullName('');
+        }
+      } else {
+        const { error: signInErr } = await signIn(email, password);
+        if (signInErr) throw signInErr;
+
+        setSuccess('Logged in successfully! Redirecting...');
+        setTimeout(() => navigate('/'), 1500);
+      }
+    } catch (err) {
+      console.error('Authentication error:', err);
+      setError(err.message || 'An error occurred during authentication.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="signin-page page-transition-enter-active">
@@ -20,13 +80,23 @@ const SignIn = () => {
             </p>
           </div>
 
-          <form className="auth-form">
+          {error && <div className="auth-alert error-alert">{error}</div>}
+          {success && <div className="auth-alert success-alert">{success}</div>}
+
+          <form onSubmit={handleSubmit} className="auth-form">
             {isSignUp && (
               <div className="form-group">
                 <label>Full Name</label>
                 <div className="input-with-icon">
                   <User className="input-icon" size={18} />
-                  <input type="text" placeholder="Karuna Fan" required />
+                  <input 
+                    type="text" 
+                    placeholder="Karuna Fan" 
+                    required 
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    disabled={loading}
+                  />
                 </div>
               </div>
             )}
@@ -35,7 +105,14 @@ const SignIn = () => {
               <label>Email Address</label>
               <div className="input-with-icon">
                 <Mail className="input-icon" size={18} />
-                <input type="email" placeholder="you@example.com" required />
+                <input 
+                  type="email" 
+                  placeholder="you@example.com" 
+                  required 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={loading}
+                />
               </div>
             </div>
 
@@ -43,13 +120,20 @@ const SignIn = () => {
               <label>Password</label>
               <div className="input-with-icon">
                 <Lock className="input-icon" size={18} />
-                <input type="password" placeholder="••••••••" required />
+                <input 
+                  type="password" 
+                  placeholder="••••••••" 
+                  required 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  disabled={loading}
+                />
               </div>
               {!isSignUp && <a href="#" className="forgot-password">Forgot password?</a>}
             </div>
 
-            <button type="submit" className="btn btn-primary auth-btn">
-              {isSignUp ? 'Create Account' : 'Sign In'}
+            <button type="submit" className="btn btn-primary auth-btn" disabled={loading}>
+              {loading ? 'Please wait...' : isSignUp ? 'Create Account' : 'Sign In'}
             </button>
           </form>
 
@@ -58,7 +142,8 @@ const SignIn = () => {
               {isSignUp ? 'Already have an account?' : "Don't have an account?"}
               <button 
                 className="toggle-auth-mode" 
-                onClick={() => setIsSignUp(!isSignUp)}
+                onClick={handleToggleMode}
+                disabled={loading}
               >
                 {isSignUp ? 'Sign In' : 'Sign Up'}
               </button>

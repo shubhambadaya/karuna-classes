@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Clock, Calendar, Users, Filter } from 'lucide-react';
+import { supabase } from '../supabaseClient';
 import './Classes.css';
 
 const MOCK_CLASSES = [
@@ -12,14 +13,67 @@ const MOCK_CLASSES = [
 ];
 
 const Classes = () => {
+  const [classes, setClasses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filterAge, setFilterAge] = useState('All');
   const [filterType, setFilterType] = useState('All');
 
-  const filteredClasses = MOCK_CLASSES.filter(c => {
+  useEffect(() => {
+    const fetchClasses = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('classes')
+          .select('*')
+          .order('id', { ascending: true });
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          const mapped = data.map(c => ({
+            id: c.id,
+            title: c.title,
+            type: c.type,
+            ageGroup: c.age_group,
+            duration: c.duration,
+            price: c.price,
+            img: c.img
+          }));
+          setClasses(mapped);
+        } else {
+          setClasses(MOCK_CLASSES);
+        }
+      } catch (err) {
+        console.error('Error fetching classes:', err);
+        setClasses(MOCK_CLASSES);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchClasses();
+  }, []);
+
+  const filteredClasses = classes.filter(c => {
     if (filterAge !== 'All' && c.ageGroup !== filterAge && c.ageGroup !== 'All ages') return false;
     if (filterType !== 'All' && c.type !== filterType) return false;
     return true;
   });
+
+  if (loading) {
+    return (
+      <div className="classes-page page-transition-enter-active">
+        <div className="page-header pattern-bg">
+          <div className="container">
+            <h1>Learning with Karuna</h1>
+            <p>Discover classes designed to ignite your creativity, regardless of your skill level.</p>
+          </div>
+        </div>
+        <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '8rem 2rem' }}>
+          <div className="loading-spinner" style={{ fontSize: '1.25rem', color: 'var(--color-sage)' }}>Loading classes...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="classes-page page-transition-enter-active">

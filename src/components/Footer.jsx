@@ -26,9 +26,9 @@ const Footer = () => {
           <div className="footer-col">
             <h3>Social</h3>
             <div className="social-links">
-              <a href="#" aria-label="Instagram">IG</a>
-              <a href="#" aria-label="Twitter">TW</a>
-              <a href="#" aria-label="Facebook">FB</a>
+              <a href="https://www.instagram.com/karuna.artwork" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+              <a href="https://www.linkedin.com/in/karunaartwork/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LN</a>
+              <a href="https://www.youtube.com/@karunaartwork4996" target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
             </div>
           </div>
         </div>
