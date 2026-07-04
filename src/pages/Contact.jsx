@@ -1,16 +1,43 @@
 import { useState } from 'react';
-import { MapPin, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Clock, Send, CheckCircle } from 'lucide-react';
+import { submitLead } from '../utils/submitLead';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Message sent! I will reply as soon as possible.');
-    setFormData({ name: '', email: '', message: '' });
+    setSubmitting(true);
+    setError('');
+
+    const result = await submitLead({
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email,
+      interest: 'General Inquiry',
+      source: 'website',
+      message: formData.message,
+    });
+
+    setSubmitting(false);
+
+    if (result.success) {
+      setSubmitted(true);
+    } else {
+      setError('Something went wrong. Please try again or message us on WhatsApp.');
+    }
+  };
+
+  const handleReset = () => {
+    setFormData({ name: '', phone: '', email: '', message: '' });
+    setSubmitted(false);
+    setError('');
   };
 
   return (
@@ -27,48 +54,65 @@ const Contact = () => {
           <div className="info-card">
             <MapPin className="info-icon" />
             <h3>Studio Location</h3>
-            <p>123 Canvas Street, Art District<br />Creative City, NY 10001</p>
+            <p>Jaipur, Rajasthan, India</p>
           </div>
           <div className="info-card">
             <Clock className="info-icon" />
             <h3>Timezone</h3>
-            <p>Eastern Standard Time (EST)<br />Online classes scheduled accordingly.</p>
+            <p>Mon – Sat: 10 AM – 7 PM IST<br />Sunday: Closed</p>
           </div>
           <div className="info-card">
-            <Mail className="info-icon" />
-            <h3>Email Me</h3>
-            <p>hello@karunagupta.com<br />Usually replies within 24 hours.</p>
+            <Phone className="info-icon" />
+            <h3>WhatsApp</h3>
+            <p>Message us anytime<br />Usually replies within 24 hours.</p>
           </div>
 
           <div className="social-connect">
             <h3>Connect Online</h3>
             <div className="social-links-large">
               <a href="https://www.instagram.com/karuna.artwork" target="_blank" rel="noopener noreferrer" className="social-btn">Instagram</a>
-              <a href="https://www.linkedin.com/in/karunaartwork/" target="_blank" rel="noopener noreferrer" className="social-btn">LinkedIn</a>
               <a href="https://www.youtube.com/@karunaartwork4996" target="_blank" rel="noopener noreferrer" className="social-btn">YouTube</a>
             </div>
           </div>
         </div>
 
         <div className="contact-form-wrapper glass-panel" data-component="src/pages/Contact.jsx (Form)">
-          <h2>Send a Message</h2>
-          <form onSubmit={handleSubmit} className="contact-form">
-            <div className="form-group">
-              <label htmlFor="name">Your Name</label>
-              <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} />
+          {submitted ? (
+            <div className="contact-success">
+              <CheckCircle size={48} className="success-icon" />
+              <h2>Message Sent!</h2>
+              <p>Karuna will get back to you within 24 hours.</p>
+              <button className="btn btn-outline" onClick={handleReset}>Send another message</button>
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input type="email" id="email" name="email" required value={formData.email} onChange={handleChange} />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows="6" required value={formData.message} onChange={handleChange}></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary btn-submit">
-              <Send size={18} /> Send Message
-            </button>
-          </form>
+          ) : (
+            <>
+              <h2>Send a Message</h2>
+              <form onSubmit={handleSubmit} className="contact-form">
+                <div className="form-group">
+                  <label htmlFor="name">Your Name</label>
+                  <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="phone">WhatsApp Number</label>
+                  <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="email">Email Address (optional)</label>
+                  <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="message">Message</label>
+                  <textarea id="message" name="message" rows="6" required value={formData.message} onChange={handleChange}></textarea>
+                </div>
+
+                {error && <p className="contact-error">{error}</p>}
+
+                <button type="submit" className="btn btn-primary btn-submit" disabled={submitting}>
+                  <Send size={18} /> {submitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </div>
     </div>

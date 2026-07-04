@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Clock, Calendar, Users, Filter } from 'lucide-react';
 import { supabase } from '../supabaseClient';
+import BookingModal from '../components/BookingModal';
 import './Classes.css';
 
 const MOCK_CLASSES = [
-  { id: 1, title: 'Watercolor Basics', type: 'Online Classes', ageGroup: 'All ages', duration: '4 weeks', price: '$49', img: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=500&q=80' },
-  { id: 2, title: 'Acrylic Pouring Workshop', type: 'Workshop', ageGroup: 'Adults', duration: '1 day', price: '$65', img: 'https://images.unsplash.com/photo-1627958999335-8ccb59eb4225?w=500&q=80' },
-  { id: 3, title: 'Kids Intro to Sketching', type: 'Book Classes', ageGroup: 'Kids', duration: '6 weeks', price: '$80', img: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&q=80' },
-  { id: 4, title: 'Advanced Oil Painting', type: 'Online Classes', ageGroup: 'Adults', duration: '8 weeks', price: '$120', img: 'https://images.unsplash.com/photo-1578301978693-85fa9c026b47?w=500&q=80' },
-  { id: 5, title: 'Abstract Art for Teens', type: 'Book Classes', ageGroup: 'Kids', duration: '4 weeks', price: '$55', img: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80' },
-  { id: 6, title: 'Pottery & Clay Workshop', type: 'Workshop', ageGroup: 'All ages', duration: '2 days', price: '$90', img: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500&q=80' },
+  { id: 1, title: 'Watercolor Basics', type: 'Online Classes', ageGroup: 'All ages', duration: '4 weeks', price: '₹999', img: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=500&q=80' },
+  { id: 2, title: 'Acrylic Pouring Workshop', type: 'Workshop', ageGroup: 'Adults', duration: '1 day', price: '₹1,499', img: 'https://images.unsplash.com/photo-1627958999335-8ccb59eb4225?w=500&q=80' },
+  { id: 3, title: 'Kids Intro to Sketching', type: 'Book Classes', ageGroup: 'Kids', duration: '6 weeks', price: '₹1,999', img: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&q=80' },
+  { id: 4, title: 'Advanced Oil Painting', type: 'Online Classes', ageGroup: 'Adults', duration: '8 weeks', price: '₹2,999', img: 'https://images.unsplash.com/photo-1578301978693-85fa9c026b47?w=500&q=80' },
+  { id: 5, title: 'Abstract Art for Teens', type: 'Book Classes', ageGroup: 'Kids', duration: '4 weeks', price: '₹1,299', img: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80' },
+  { id: 6, title: 'Pottery & Clay Workshop', type: 'Workshop', ageGroup: 'All ages', duration: '2 days', price: '₹1,999', img: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500&q=80' },
 ];
 
 const Classes = () => {
@@ -17,6 +18,15 @@ const Classes = () => {
   const [loading, setLoading] = useState(true);
   const [filterAge, setFilterAge] = useState('All');
   const [filterType, setFilterType] = useState('All');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedClass, setSelectedClass] = useState('');
+  const [bookingKey, setBookingKey] = useState(0);
+
+  const handleBookNow = (classTitle) => {
+    setSelectedClass(classTitle);
+    setBookingKey((prev) => prev + 1);
+    setModalOpen(true);
+  };
 
   useEffect(() => {
     const fetchClasses = async () => {
@@ -125,7 +135,7 @@ const Classes = () => {
                   
                   <div className="class-footer">
                     <span className="class-price">{cls.price}</span>
-                    <button className="btn btn-primary btn-sm">Book Now</button>
+                    <button className="btn btn-primary btn-sm" onClick={() => handleBookNow(cls.title)}>Book Now</button>
                   </div>
                 </div>
               </div>
@@ -138,6 +148,13 @@ const Classes = () => {
           )}
         </div>
       </div>
+
+      <BookingModal
+        key={bookingKey}
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        classTitle={selectedClass}
+      />
     </div>
   );
 };
