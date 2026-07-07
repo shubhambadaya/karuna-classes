@@ -27,7 +27,9 @@ const Home = () => {
               <span className="text-accent">Let's create something beautiful together.</span>
             </h1>
             <p className="hero-bio">
-              Welcome to my digital studio. I'm a freelance artist specializing in contemporary paintings and illustrations. Whether you're here to explore my latest artworks or join one of my interactive classes, you've found a place to let your creativity bloom.
+              Art teacher and freelance artist with 10 years of experience. I conduct online classes and workshops
+              for all age groups in watercolour painting, acrylics, sketching and more — with students across
+              Bangalore, Mumbai, Gurgaon, Jaipur and worldwide, and top-rated profiles on Fiverr and Preply.
             </p>
             <div className="hero-actions">
               <Link to="/artworks" className="btn btn-outline">Explore my art</Link>
