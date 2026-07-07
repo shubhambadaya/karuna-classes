@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Palette, Users, MapPin, Image as ImageIcon, BookOpen, Star } from 'lucide-react';
+import { Users, MapPin, BookOpen, Star, MessageCircle } from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
@@ -32,7 +32,7 @@ const Home = () => {
               Bangalore, Mumbai, Gurgaon, Jaipur and worldwide, and top-rated profiles on Fiverr and Preply.
             </p>
             <div className="hero-actions">
-              <Link to="/artworks" className="btn btn-outline">Explore my art</Link>
+              <Link to="/contact" className="btn btn-outline">Get in Touch</Link>
               <Link to="/classes" className="btn btn-primary">Book a Class</Link>
             </div>
           </div>
@@ -52,12 +52,12 @@ const Home = () => {
             <div className="card-bg class-bg"></div>
           </Link>
           
-          <Link to="/artworks" className="feature-card art-card">
+          <Link to="/contact" className="feature-card art-card">
             <div className="card-content">
-              <Palette size={32} className="card-icon" />
-              <h2>Original Artworks</h2>
-              <p>Discover my gallery of illustrations, paintings, and bespoke custom commissions.</p>
-              <span className="card-link">Explore Gallery &rarr;</span>
+              <MessageCircle size={32} className="card-icon" />
+              <h2>Talk to Karuna</h2>
+              <p>Questions about classes or want to try one first? Send a message and get a reply within 24 hours.</p>
+              <span className="card-link">Get in Touch &rarr;</span>
             </div>
             <div className="card-bg art-bg"></div>
           </Link>
@@ -77,21 +77,13 @@ const Home = () => {
               <Users size={24} />
               <span>Book Classes</span>
             </Link>
-            <Link to="/artworks" className="grid-tile">
-              <ImageIcon size={24} />
-              <span>Illustration</span>
-            </Link>
-            <Link to="/artworks" className="grid-tile">
-              <Palette size={24} />
-              <span>Paintings</span>
-            </Link>
-            <Link to="/collaboration" className="grid-tile">
-              <Star size={24} />
-              <span>Custom Work</span>
-            </Link>
             <Link to="/classes" className="grid-tile">
               <MapPin size={24} />
               <span>Workshop</span>
+            </Link>
+            <Link to="/contact" className="grid-tile">
+              <MessageCircle size={24} />
+              <span>Get in Touch</span>
             </Link>
           </div>
         </div>
