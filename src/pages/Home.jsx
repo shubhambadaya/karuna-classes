@@ -39,6 +39,23 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Intro Video Section */}
+      <section className="video-section" data-component="src/pages/Home.jsx (Intro Video)">
+        <div className="container">
+          <h2 className="section-title">Watch My Intro</h2>
+          <div className="video-wrapper">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/64vZ6eW539E?list=PLUdFs4Pr6N8uBiVMNYADxoWHq93e6BPsG"
+              title="Karuna Gupta — Online Art Classes Intro"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
       {/* Feature Cards Section */}
       <section className="features-section texture-overlay" data-component="src/pages/Home.jsx (Features Section)">
         <div className="container features-container">
