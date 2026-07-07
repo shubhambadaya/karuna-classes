@@ -1,10 +1,12 @@
 import { MessageCircle } from 'lucide-react';
 import './WhatsAppButton.css';
 
-const WHATSAPP_NUMBER = '919XXXXXXXXX';
+const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER;
 const DEFAULT_MESSAGE = "Hi Karuna! I'm interested in your art classes and would love to know more.";
 
 const WhatsAppButton = () => {
+  if (!WHATSAPP_NUMBER) return null;
+
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(DEFAULT_MESSAGE)}`;
 
   return (

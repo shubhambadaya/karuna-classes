@@ -9,10 +9,11 @@ import Lessons from './pages/Lessons';
 import Collaboration from './pages/Collaboration';
 import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
-import LeadsDashboard from './pages/LeadsDashboard';
 import DevInspector from './components/DevInspector';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { captureUTMParams } from './utils/tracking';
+
+const LeadsDashboard = lazy(() => import('./pages/LeadsDashboard'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -49,7 +50,7 @@ function App() {
             <Route path="/collaboration" element={<Collaboration />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/admin/leads" element={<LeadsDashboard />} />
+            <Route path="/admin/leads" element={<Suspense fallback={null}><LeadsDashboard /></Suspense>} />
           </Routes>
         </main>
         <Footer />
