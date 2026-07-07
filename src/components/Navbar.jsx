@@ -38,8 +38,7 @@ const Navbar = () => {
           <NavLink to="/" onClick={toggleMenu}>Home</NavLink>
           <NavLink to="/lessons" onClick={toggleMenu}>Lessons</NavLink>
           <NavLink to="/classes" onClick={toggleMenu}>Classes</NavLink>
-          <NavLink to="/artworks" onClick={toggleMenu}>Projects</NavLink>
-          <NavLink to="/collaboration" onClick={toggleMenu}>Collaboration</NavLink>
+          {/* Projects and Collaboration tabs hidden for now — routes still work */}
           <NavLink to="/contact" onClick={toggleMenu}>Contact</NavLink>
           
           <div className="nav-actions mobile-only">
