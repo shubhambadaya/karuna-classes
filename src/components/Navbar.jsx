@@ -31,12 +31,13 @@ const Navbar = () => {
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`} data-component="src/components/Navbar.jsx">
       <div className="container nav-container">
         <Link to="/" className="brand-logo">
-          Karuna Artwork
+          <span>Karuna Gupta</span><small>Illustrator · Visual Artist</small>
         </Link>
         
         <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
           <NavLink to="/" onClick={toggleMenu}>Home</NavLink>
-          <NavLink to="/lessons" onClick={toggleMenu}>Lessons</NavLink>
+          <NavLink to="/about" onClick={toggleMenu}>About</NavLink>
+          <NavLink to="/artworks" onClick={toggleMenu}>Artwork</NavLink>
           <NavLink to="/classes" onClick={toggleMenu}>Classes</NavLink>
           {/* Projects and Collaboration tabs hidden for now — routes still work */}
           <NavLink to="/contact" onClick={toggleMenu}>Contact</NavLink>
@@ -52,7 +53,7 @@ const Navbar = () => {
             ) : (
               <>
                 <Link to="/signin" className="btn btn-outline" onClick={toggleMenu}>Sign In</Link>
-                <Link to="/classes" className="btn btn-primary" onClick={toggleMenu}>Subscribe</Link>
+                <Link to="/classes" className="btn btn-primary" onClick={toggleMenu}>Explore Classes</Link>
               </>
             )}
           </div>
@@ -69,7 +70,7 @@ const Navbar = () => {
           ) : (
             <>
               <Link to="/signin" className="btn btn-outline" style={{ marginRight: '1rem' }}>Sign In</Link>
-              <Link to="/classes" className="btn btn-primary">Subscribe</Link>
+              <Link to="/classes" className="btn btn-primary">Explore Classes</Link>
             </>
           )}
         </div>

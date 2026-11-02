@@ -6,15 +6,16 @@ const Footer = () => {
     <footer className="footer texture-overlay" data-component="src/components/Footer.jsx">
       <div className="container footer-content">
         <div className="footer-brand">
-          <h2>Karuna Artwork</h2>
-          <p className="footer-tagline">Explore my art. Have a great time.</p>
+          <h2>Karuna Gupta</h2>
+          <p className="footer-tagline">Illustrator & visual artist telling stories through pictures.</p>
         </div>
         
         <div className="footer-links">
           <div className="footer-col">
             <h3>Explore</h3>
+            <Link to="/about">About</Link>
+            <Link to="/artworks">Artwork</Link>
             <Link to="/classes">Classes</Link>
-            <Link to="/lessons">Lessons</Link>
           </div>
           <div className="footer-col">
             <h3>Connect</h3>

@@ -4,6 +4,7 @@ import { submitLead } from '../utils/submitLead';
 import './Contact.css';
 
 const Contact = () => {
+  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -64,7 +65,7 @@ const Contact = () => {
           <div className="info-card">
             <Phone className="info-icon" />
             <h3>WhatsApp</h3>
-            <p>Message us anytime<br />Usually replies within 24 hours.</p>
+            <p>{whatsappNumber ? <a href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer">Message Karuna on WhatsApp</a> : 'Message us anytime'}<br />Usually replies within 24 hours.</p>
           </div>
 
           <div className="social-connect">

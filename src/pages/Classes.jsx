@@ -1,33 +1,50 @@
 import { useState, useEffect } from 'react';
-import { Clock, Calendar, Users, Filter } from 'lucide-react';
+import { Clock, Users, Filter } from 'lucide-react';
 import { supabase } from '../supabaseClient';
-import BookingModal from '../components/BookingModal';
 import './Classes.css';
 
-const MOCK_CLASSES = [
-  { id: 1, title: 'Watercolor Basics', type: 'Online Classes', ageGroup: 'All ages', duration: '4 weeks', price: '₹999', img: 'https://images.unsplash.com/photo-1543857778-c4a1a3e0b2eb?w=500&q=80' },
-  { id: 2, title: 'Acrylic Pouring Workshop', type: 'Workshop', ageGroup: 'Adults', duration: '1 day', price: '₹1,499', img: 'https://images.unsplash.com/photo-1627958999335-8ccb59eb4225?w=500&q=80' },
-  { id: 3, title: 'Kids Intro to Sketching', type: 'Book Classes', ageGroup: 'Kids', duration: '6 weeks', price: '₹1,999', img: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&q=80' },
-  { id: 4, title: 'Advanced Oil Painting', type: 'Online Classes', ageGroup: 'Adults', duration: '8 weeks', price: '₹2,999', img: 'https://images.unsplash.com/photo-1578301978693-85fa9c026b47?w=500&q=80' },
-  { id: 5, title: 'Abstract Art for Teens', type: 'Book Classes', ageGroup: 'Kids', duration: '4 weeks', price: '₹1,299', img: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=500&q=80' },
-  { id: 6, title: 'Pottery & Clay Workshop', type: 'Workshop', ageGroup: 'All ages', duration: '2 days', price: '₹1,999', img: 'https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500&q=80' },
+const WHATSAPP_NUMBER = (import.meta.env.VITE_WHATSAPP_NUMBER || '').replace(/[^0-9]/g, '');
+const CLASS_ARTWORKS = [
+  '/artworks/little-explorer.jpg',
+  '/artworks/gentle-giant.jpg',
+  '/artworks/bridge-at-dusk.jpg',
+  '/artworks/song-for-my-cat.jpg',
+  '/artworks/first-haircut.jpg',
+  '/artworks/street-style.jpg',
 ];
+
+function getClassArtwork(title = '', index = 0) {
+  const name = title.toLowerCase();
+  if (/story|children|kids|picture/.test(name)) return '/artworks/gentle-giant.jpg';
+  if (/drawing|sketch|figure/.test(name)) return '/artworks/little-explorer.jpg';
+  if (/water|paint|oil|acrylic/.test(name)) return '/artworks/bridge-at-dusk.jpg';
+  if (/character|illustrat/.test(name)) return '/artworks/street-style.jpg';
+  return CLASS_ARTWORKS[index % CLASS_ARTWORKS.length];
+}
+
+function getBookingHref(classTitle) {
+  const message = `Hi Karuna, I am interested in the ${classTitle} class.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+const MOCK_CLASSES = [
+  { id: 1, title: 'Watercolor Basics', type: 'Online Classes', ageGroup: 'All ages', duration: '4 weeks' },
+  { id: 2, title: 'Acrylic Pouring Workshop', type: 'Workshop', ageGroup: 'Adults', duration: '1 day' },
+  { id: 3, title: 'Kids Intro to Sketching', type: 'Book Classes', ageGroup: 'Kids', duration: '6 weeks' },
+  { id: 4, title: 'Advanced Oil Painting', type: 'Online Classes', ageGroup: 'Adults', duration: '8 weeks' },
+  { id: 5, title: 'Abstract Art for Teens', type: 'Book Classes', ageGroup: 'Kids', duration: '4 weeks' },
+  { id: 6, title: 'Creative Illustration Workshop', type: 'Workshop', ageGroup: 'All ages', duration: '2 days' },
+].map((classItem, index) => ({
+  ...classItem,
+  img: getClassArtwork(classItem.title, index),
+  fallbackImg: getClassArtwork(classItem.title, index),
+}));
 
 const Classes = () => {
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filterAge, setFilterAge] = useState('All');
   const [filterType, setFilterType] = useState('All');
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedClass, setSelectedClass] = useState('');
-  const [bookingKey, setBookingKey] = useState(0);
-
-  const handleBookNow = (classTitle) => {
-    setSelectedClass(classTitle);
-    setBookingKey((prev) => prev + 1);
-    setModalOpen(true);
-  };
-
   useEffect(() => {
     const fetchClasses = async () => {
       try {
@@ -45,8 +62,8 @@ const Classes = () => {
             type: c.type,
             ageGroup: c.age_group,
             duration: c.duration,
-            price: c.price,
-            img: c.img
+            img: c.img || getClassArtwork(c.title),
+            fallbackImg: getClassArtwork(c.title),
           }));
           setClasses(mapped);
         } else {
@@ -122,7 +139,16 @@ const Classes = () => {
             filteredClasses.map((cls) => (
               <div key={cls.id} className="class-card-item">
                 <div className="class-img-wrapper">
-                  <img src={cls.img} alt={cls.title} />
+                  <img
+                    src={cls.img}
+                    alt={`Artwork for ${cls.title}`}
+                    loading="lazy"
+                    onError={(event) => {
+                      if (event.currentTarget.dataset.fallbackApplied) return;
+                      event.currentTarget.dataset.fallbackApplied = 'true';
+                      event.currentTarget.src = cls.fallbackImg || getClassArtwork(cls.title);
+                    }}
+                  />
                   <span className="class-badge type-badge">{cls.type}</span>
                 </div>
                 <div className="class-details">
@@ -134,8 +160,8 @@ const Classes = () => {
                   </div>
                   
                   <div className="class-footer">
-                    <span className="class-price">{cls.price}</span>
-                    <button className="btn btn-primary btn-sm" onClick={() => handleBookNow(cls.title)}>Book Now</button>
+                    <span className="class-price">₹999 <small>/ hour</small></span>
+                    <a className="btn btn-primary btn-sm" href={getBookingHref(cls.title)} target="_blank" rel="noopener noreferrer" aria-label={`Ask about booking ${cls.title} on WhatsApp`}>Book Now</a>
                   </div>
                 </div>
               </div>
@@ -149,12 +175,6 @@ const Classes = () => {
         </div>
       </div>
 
-      <BookingModal
-        key={bookingKey}
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        classTitle={selectedClass}
-      />
     </div>
   );
 };

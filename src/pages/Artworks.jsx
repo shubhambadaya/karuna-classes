@@ -1,128 +1,73 @@
-import { useState, useEffect } from 'react';
-import { X, ExternalLink } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { X, ArrowUpRight } from 'lucide-react';
 import { supabase } from '../supabaseClient';
 import './Artworks.css';
 
-const ART_DATA = [
-  { id: 1, title: 'Autumn Whisper', category: 'Paintings', medium: 'Oil on Canvas', img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80', price: '$850' },
-  { id: 2, title: 'Urban Jungle', category: 'Illustration', medium: 'Digital', img: 'https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&q=80', price: '$150' },
-  { id: 3, title: 'Serenity', category: 'Paintings', medium: 'Watercolor', img: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&q=80', price: 'Sold' },
-  { id: 4, title: 'Geometric Dreams', category: 'Illustration', medium: 'Mixed Media', img: 'https://images.unsplash.com/photo-1580136608079-72029d0de130?w=600&q=80', price: '$200' },
-  { id: 5, title: 'Family Portrait', category: 'Custom Work', medium: 'Charcoal', img: 'https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?w=600&q=80', price: 'Enquire' },
-  { id: 6, title: 'Ocean Breeze', category: 'Paintings', medium: 'Acrylic', img: 'https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?w=600&q=80', price: '$450' },
+const PORTFOLIO = [
+  { id: 'firefly-path', title: 'The Firefly Path', category: 'Worlds & scenes', medium: 'Environment illustration', img: '/artworks/firefly-path.jpg', description: 'A small journey into a forest alive with fireflies.' },
+  { id: 'first-haircut', title: 'First Haircut', category: 'Children’s illustration', medium: 'Picture-book storytelling', img: '/artworks/first-haircut.jpg', description: 'A tender, everyday milestone told with warmth and a little wonder.' },
+  { id: 'breakfast-table', title: 'Breakfast Table', category: 'Worlds & scenes', medium: 'Digital painting', img: '/artworks/breakfast-table.jpg', description: 'A quiet morning scene, lit by a single lamp.' },
+  { id: 'song-for-my-cat', title: 'A Song for My Cat', category: 'Book covers', medium: 'Picture-book cover concept', img: '/artworks/song-for-my-cat.jpg', description: 'A boy plays violin for his cat on a sunny courtyard step.' },
+  { id: 'spring-crush', title: 'Spring Crush', category: 'Character design', medium: 'Character illustration', img: '/artworks/spring-crush.jpg', description: 'A close moment between two characters, developed from a loose line sketch.' },
+  { id: 'orange-thief', title: 'Orange Thief', category: 'Character design', medium: 'Digital illustration', img: '/artworks/orange-thief.jpg', description: 'A playful gesture study of a curious cat among the leaves.' },
+  { id: 'bridge-at-dusk', title: 'Bridge at Dusk', category: 'Worlds & scenes', medium: 'Landscape illustration', img: '/artworks/bridge-at-dusk.jpg', description: 'An imagined garden and bridge in the last light of day.' },
+  { id: 'gone-fishing', title: 'Gone Fishing', category: 'Worlds & scenes', medium: 'Scene illustration', img: '/artworks/gone-fishing.jpg', description: 'A peaceful afternoon by the water.' },
+  { id: 'portrait-in-olive', title: 'Portrait in Olive', category: 'Portraits', medium: 'Portrait study', img: '/artworks/portrait-in-olive.jpg', description: 'An expressive portrait in a limited, earthy palette.' },
+  { id: 'gentle-giant', title: 'The Gentle Giant', category: 'Children’s illustration', medium: 'Picture-book illustration', img: '/artworks/gentle-giant.jpg', description: 'A young reader finds a gentle companion in a field of flowers.' },
+  { id: 'little-explorer', title: 'Little Explorer', category: 'Character design', medium: 'Character design', img: '/artworks/little-explorer.jpg', description: 'A curious character study with a favourite teddy in tow.' },
+  { id: 'street-style', title: 'Street Style', category: 'Character design', medium: 'Character design', img: '/artworks/street-style.jpg', description: 'A confident character developed through silhouette, costume and colour.' },
+  { id: 'spring-crush-sketch', title: 'Spring Crush: First Lines', category: 'Sketchbook', medium: 'Line sketch', img: '/artworks/spring-crush-sketch.jpg', description: 'The first loose sketch, finding the expression and glance between two characters.' },
+  { id: 'orange-thief-sketch', title: 'Orange Thief: Gesture Studies', category: 'Sketchbook', medium: 'Gesture studies', img: '/artworks/orange-thief-sketch.jpg', description: 'Loose cat gesture drawings exploring pose and attitude.' },
+  { id: 'orange-thief-value-study', title: 'Orange Thief: Value Study', category: 'Sketchbook', medium: 'Grayscale value study', img: '/artworks/orange-thief-value-study.jpg', description: 'A monochrome study to establish light and form before colour.' },
 ];
 
 const Artworks = () => {
-  const [artworks, setArtworks] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('All');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [artworks, setArtworks] = useState(PORTFOLIO);
   const [lightboxImg, setLightboxImg] = useState(null);
-
-  const categories = ['All', 'Illustration', 'Paintings', 'Custom Work'];
+  const requested = searchParams.get('category') || 'All';
+  const categories = useMemo(() => ['All', ...new Set(artworks.map((art) => art.category))], [artworks]);
+  const activeTab = categories.includes(requested) ? requested : 'All';
+  const filteredArts = activeTab === 'All' ? artworks : artworks.filter((art) => art.category === activeTab);
 
   useEffect(() => {
-    const fetchArtworks = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('artworks')
-          .select('*')
-          .order('id', { ascending: true });
-
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          setArtworks(data);
-        } else {
-          setArtworks(ART_DATA);
-        }
-      } catch (err) {
-        console.error('Error fetching artworks:', err);
-        setArtworks(ART_DATA);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchArtworks();
+    let mounted = true;
+    supabase.from('artworks').select('*').order('id', { ascending: true }).then(({ data }) => {
+      const extra = (data || []).filter((item) => item.img || item.image_url).map((item) => ({
+        id: `supabase-${item.id}`,
+        title: item.title || 'Artwork',
+        category: item.category || 'Artwork',
+        medium: item.medium || item.technique || 'Illustration',
+        img: item.img || item.image_url,
+        description: item.description || '',
+        price: item.price,
+      }));
+      if (mounted && extra.length) setArtworks([...PORTFOLIO, ...extra]);
+    });
+    return () => { mounted = false; };
   }, []);
 
-  const filteredArts = activeTab === 'All' 
-    ? artworks 
-    : artworks.filter(art => art.category === activeTab);
+  useEffect(() => {
+    if (!lightboxImg) return undefined;
+    const onKeyDown = (event) => { if (event.key === 'Escape') setLightboxImg(null); };
+    window.addEventListener('keydown', onKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => { window.removeEventListener('keydown', onKeyDown); document.body.style.overflow = ''; };
+  }, [lightboxImg]);
 
-  if (loading) {
-    return (
-      <div className="artworks-page page-transition-enter-active">
-        <div className="page-header pattern-bg" data-component="src/pages/Artworks.jsx (Header)">
-          <div className="container">
-            <h1>My Gallery</h1>
-            <p>A curated collection of my recent works and commissions.</p>
-          </div>
-        </div>
-        <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '8rem 2rem' }}>
-          <div className="loading-spinner" style={{ fontSize: '1.25rem', color: 'var(--color-sage)' }}>Loading gallery...</div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="artworks-page page-transition-enter-active">
-      <div className="page-header pattern-bg" data-component="src/pages/Artworks.jsx (Header)">
-        <div className="container">
-          <h1>My Gallery</h1>
-          <p>A curated collection of my recent works and commissions.</p>
-        </div>
-      </div>
-
-      <div className="container">
-        <div className="portfolio-tabs" data-component="src/pages/Artworks.jsx (Portfolio Tabs)">
-          {categories.map(cat => (
-            <button 
-              key={cat} 
-              className={`tab-btn ${activeTab === cat ? 'active' : ''}`}
-              onClick={() => setActiveTab(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        <div className="masonry-grid" data-component="src/pages/Artworks.jsx (Gallery Grid)">
-          {filteredArts.map(art => (
-            <div key={art.id} className="masonry-item" onClick={() => setLightboxImg(art)}>
-              <img src={art.img} alt={art.title} loading="lazy" />
-              <div className="masonry-overlay">
-                <div className="overlay-content">
-                  <h3>{art.title}</h3>
-                  <p>{art.medium}</p>
-                  <span className="price-tag">{art.price}</span>
-                </div>
-                <button className="btn-icon"><ExternalLink size={20}/></button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {lightboxImg && (
-        <div className="lightbox" onClick={() => setLightboxImg(null)}>
-          <button className="close-lightbox"><X size={32} /></button>
-          <div className="lightbox-content" onClick={e => e.stopPropagation()}>
-            <img src={lightboxImg.img} alt={lightboxImg.title} />
-            <div className="lightbox-info">
-              <h2>{lightboxImg.title}</h2>
-              <p className="artist-meta">{lightboxImg.medium} &mdash; {lightboxImg.category}</p>
-              <div className="lightbox-actions">
-                <span className="lightbox-price">{lightboxImg.price}</span>
-                <button className="btn btn-primary">Enquire about this piece</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  return <main className="artworks-page portfolio-gallery">
+    <header className="gallery-heading"><p className="eyebrow">A collection of stories & studies</p><h1>Pictures with<br /><em>something to say.</em></h1><p>Character, colour, quiet moments and imagined places. Browse selected illustration work and a glimpse into the process.</p></header>
+    <div className="gallery-controls" aria-label="Filter artwork by category" role="group">{categories.map((category) => <button key={category} type="button" className={`gallery-filter ${activeTab === category ? 'active' : ''}`} aria-pressed={activeTab === category} onClick={() => setSearchParams(category === 'All' ? {} : { category })}>{category}</button>)}</div>
+    <div className="portfolio-masonry" aria-live="polite">{filteredArts.map((art, index) => <button className="portfolio-artwork" key={art.id} type="button" onClick={() => setLightboxImg(art)} aria-label={`View ${art.title}`}>
+      <span className={`artwork-image artwork-image-${index % 5}`}><img src={art.img} alt={`${art.title}, ${art.medium} by Karuna Gupta`} loading={index < 4 ? 'eager' : 'lazy'} /><span className="artwork-open"><ArrowUpRight size={20} /></span></span>
+      <span className="gallery-caption"><span><strong>{art.title}</strong><small>{art.medium}</small></span><small>{art.category}</small></span>
+    </button>)}</div>
+    {lightboxImg && <div className="artwork-lightbox" role="dialog" aria-modal="true" aria-label={`${lightboxImg.title} artwork`} onClick={() => setLightboxImg(null)}>
+      <button className="lightbox-close" type="button" aria-label="Close artwork viewer" onClick={() => setLightboxImg(null)}><X size={25} /></button>
+      <div className="lightbox-artwork-content" onClick={(event) => event.stopPropagation()}><img src={lightboxImg.img} alt={`${lightboxImg.title}, ${lightboxImg.medium} by Karuna Gupta`} /><div className="lightbox-copy"><p className="eyebrow">{lightboxImg.category}</p><h2>{lightboxImg.title}</h2><p>{lightboxImg.description}</p><p className="lightbox-medium">{lightboxImg.medium}</p></div></div>
+    </div>}
+  </main>;
 };
 
 export default Artworks;
