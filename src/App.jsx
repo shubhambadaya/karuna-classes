@@ -20,11 +20,11 @@ function ScrollToTop() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const pages = {
-      '/': ['Online Art Educator in Jaipur, India | Karuna Gupta', 'Karuna Gupta is an art educator and illustrator based in Jaipur, offering online art education, drawing, painting and illustration guidance to learners across India.'],
-      '/about': ['About Karuna Gupta — Art Educator & Illustrator', 'Meet Karuna Gupta, Jaipur-based art educator and illustrator. She has helped hundreds of learners worldwide develop illustration and watercolour skills through online lessons and one-to-one feedback.'],
+      '/': ['Online Art Lessons in English Worldwide | Karuna Gupta', 'Online illustration and watercolour lessons in English for learners in the UK, US, Australia, New Zealand, Europe and the Middle East, with personal feedback.'],
+      '/about': ['About Karuna Gupta — Art Educator & Illustrator', 'Meet Karuna Gupta, art educator and illustrator. She has helped hundreds of learners worldwide develop illustration and watercolour skills through online lessons and one-to-one feedback.'],
       '/artworks': ['Artwork Gallery — Karuna Gupta', 'Browse character design, children’s illustration, picture-book covers, portraits and visual storytelling by Karuna Gupta.'],
       '/shop': ['Shop Artworks — Karuna Gupta', 'Browse digital artwork and creative downloads by Karuna Gupta.'],
-      '/classes': ['Online Art Classes & One-to-One Feedback | Karuna Gupta', 'Learn illustration and watercolour painting online with Karuna Gupta, an art educator in Jaipur who has helped hundreds of learners worldwide, from children and beginners to advanced artists. Message her to ask questions and schedule a lesson.'],
+      '/classes': ['Online Art Lessons Worldwide | Karuna Gupta', 'English-language illustration and watercolour lessons for children and adults in the UK, US, Australia, New Zealand, the Netherlands, France, Spain, Dubai and the wider Middle East. Ask about one-to-one feedback.'],
       '/contact': ['Contact Karuna Gupta', 'Get in touch with Karuna Gupta about illustration projects, artwork, classes and workshops.'],
       '/lessons': ['Art Lessons — Karuna Gupta', 'Learn about Karuna Gupta’s teaching approach and student experiences.'],
       '/collaboration': ['Creative Collaboration — Karuna Gupta', 'Discuss illustration, visual development and custom artwork with Karuna Gupta.'],

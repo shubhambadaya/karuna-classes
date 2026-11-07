@@ -21,7 +21,7 @@ const Navbar = () => {
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`} data-component="src/components/Navbar.jsx">
       <div className="container nav-container">
         <Link to="/" className="brand-logo">
-          <span>Karuna Gupta</span><small>Illustrator · Visual Artist</small>
+          <span>Karuna Gupta</span><small>Art Educator · Illustrator</small>
         </Link>
         
         <nav className={`nav-links ${mobileMenuOpen ? 'open' : ''}`}>
@@ -34,12 +34,12 @@ const Navbar = () => {
           <NavLink to="/contact" onClick={toggleMenu}>Contact</NavLink>
           
           <div className="nav-actions mobile-only">
-            <Link to="/classes" className="btn btn-primary" onClick={toggleMenu}>Explore Classes</Link>
+            <Link to="/classes" className="btn btn-primary" onClick={toggleMenu}>Ask about lessons</Link>
           </div>
         </nav>
 
         <div className="nav-actions desktop-only">
-          <Link to="/classes" className="btn btn-primary">Explore Classes</Link>
+          <Link to="/classes" className="btn btn-primary">Ask about lessons</Link>
         </div>
 
         <button className="mobile-toggle" onClick={toggleMenu}>

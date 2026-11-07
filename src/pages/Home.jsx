@@ -24,12 +24,12 @@ function Home() {
     <div className="home-page portfolio-home">
       <section className="portfolio-hero">
         <div className="portfolio-hero-copy">
-          <p className="eyebrow">Art educator & illustrator · Jaipur, India</p>
+          <p className="eyebrow">Online art lessons in English · Worldwide</p>
           <h1>Stories made<br />to <em>stay with you.</em></h1>
-          <p className="hero-intro">I’m Karuna Gupta, an art educator, illustrator and urban sketcher in Jaipur. I’ve helped hundreds of learners—including children worldwide, beginners and advanced artists—grow their skills through online art lessons.</p>
+          <p className="hero-intro">I’m Karuna Gupta, an art educator and illustrator teaching learners around the world. I’ve helped hundreds of learners—from children to adults, beginners to advanced artists—build their illustration and watercolour skills online, with thoughtful one-to-one feedback.</p>
           <div className="hero-actions">
-            <Link to="/artworks" className="text-link">Explore the artwork <ArrowRight size={17} /></Link>
-            <Link to="/about" className="text-link text-link-muted">Meet the artist <ArrowDownRight size={17} /></Link>
+            <Link to="/classes" className="text-link">Ask about online lessons <ArrowRight size={17} /></Link>
+            <Link to="/artworks" className="text-link text-link-muted">Explore the artwork <ArrowDownRight size={17} /></Link>
           </div>
           <div className="hero-note"><span className="note-mark">✳</span><span>Digital & traditional<br />Illustration · Storytelling · Character design</span></div>
         </div>
@@ -42,12 +42,12 @@ function Home() {
 
       <section className="educator-intro portfolio-section" aria-labelledby="educator-heading">
         <div>
-          <p className="eyebrow">Online art education · Jaipur, India</p>
-          <h2 id="educator-heading">Learn with an art educator who makes room for <em>your way of seeing.</em></h2>
+          <p className="eyebrow">One-to-one guidance · All experience levels</p>
+          <h2 id="educator-heading">Build skills with feedback shaped around <em>your way of seeing.</em></h2>
         </div>
         <div className="educator-intro-copy">
-          <p>Karuna Gupta is an art educator and illustrator based in Jaipur, Rajasthan. She has helped hundreds of learners worldwide explore illustration and watercolour painting through online classes, from first steps to advanced practice. Lessons include one-to-one feedback to help students improve, and learners can message Karuna to ask questions and schedule a class.</p>
-          <Link to="/classes" className="text-link">Ask about online art guidance <ArrowRight size={17} /></Link>
+          <p>Karuna teaches learners around the world in English. Her online illustration and watercolour lessons welcome children and adults, whether they are just starting or developing advanced skills. Each learner can receive personal feedback and ask about a lesson that fits their goals.</p>
+          <Link to="/classes" className="text-link">Tell Karuna what you’d like to learn <ArrowRight size={17} /></Link>
         </div>
       </section>
 

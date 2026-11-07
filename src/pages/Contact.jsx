@@ -42,7 +42,7 @@ const Contact = () => {
           <div className="info-card">
             <MapPin className="info-icon" />
             <h3>Studio Location</h3>
-            <p>Jaipur, Rajasthan, India</p>
+            <p>Online · Worldwide</p>
           </div>
           <div className="info-card">
             <Phone className="info-icon" />
