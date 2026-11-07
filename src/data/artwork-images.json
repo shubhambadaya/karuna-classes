@@ -1,0 +1,326 @@
+{
+  "\/artworks\/boy-and-dog.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/boy-and-dog.jpg",
+    "galleryWidth" : 637,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/boy-and-dog-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/boy-and-dog-480.jpg 339w, \/artwork-optimized\/boy-and-dog-960.jpg 679w, \/artwork-optimized\/boy-and-dog-1600.jpg 1132w, \/artwork-optimized\/boy-and-dog-2400.jpg 1697w",
+    "width" : 1697
+  },
+  "\/artworks\/breakfast-table.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/breakfast-table.jpg",
+    "galleryWidth" : 684,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/breakfast-table-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/breakfast-table-480.jpg 365w, \/artwork-optimized\/breakfast-table-960.jpg 730w, \/artwork-optimized\/breakfast-table-1600.jpg 1217w, \/artwork-optimized\/breakfast-table-2400.jpg 1369w",
+    "width" : 1369
+  },
+  "\/artworks\/bridge-at-dusk.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/bridge-at-dusk.jpg",
+    "galleryWidth" : 642,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/bridge-at-dusk-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/bridge-at-dusk-480.jpg 342w, \/artwork-optimized\/bridge-at-dusk-960.jpg 685w, \/artwork-optimized\/bridge-at-dusk-1600.jpg 1142w, \/artwork-optimized\/bridge-at-dusk-2400.jpg 1285w",
+    "width" : 1285
+  },
+  "\/artworks\/digital-makeup-illustration.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/digital-makeup-illustration.jpg",
+    "galleryWidth" : 720,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/digital-makeup-illustration-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/digital-makeup-illustration-480.jpg 384w, \/artwork-optimized\/digital-makeup-illustration-960.jpg 768w, \/artwork-optimized\/digital-makeup-illustration-1600.jpg 1280w, \/artwork-optimized\/digital-makeup-illustration-2400.jpg 1920w",
+    "width" : 1920
+  },
+  "\/artworks\/firefly-path.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/firefly-path.jpg",
+    "galleryWidth" : 727,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/firefly-path-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/firefly-path-480.jpg 388w, \/artwork-optimized\/firefly-path-960.jpg 776w, \/artwork-optimized\/firefly-path-1600.jpg 1293w, \/artwork-optimized\/firefly-path-2400.jpg 1455w",
+    "width" : 1455
+  },
+  "\/artworks\/first-haircut.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/first-haircut.jpg",
+    "galleryWidth" : 744,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/first-haircut-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/first-haircut-480.jpg 397w, \/artwork-optimized\/first-haircut-960.jpg 794w, \/artwork-optimized\/first-haircut-1600.jpg 1323w, \/artwork-optimized\/first-haircut-2400.jpg 1488w",
+    "width" : 1488
+  },
+  "\/artworks\/gentle-giant.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/gentle-giant.jpg",
+    "galleryWidth" : 754,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/gentle-giant-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/gentle-giant-480.jpg 402w, \/artwork-optimized\/gentle-giant-960.jpg 804w, \/artwork-optimized\/gentle-giant-1600.jpg 1341w, \/artwork-optimized\/gentle-giant-2400.jpg 2011w",
+    "width" : 2011
+  },
+  "\/artworks\/gone-fishing.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/gone-fishing.jpg",
+    "galleryWidth" : 636,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/gone-fishing-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/gone-fishing-480.jpg 339w, \/artwork-optimized\/gone-fishing-960.jpg 678w, \/artwork-optimized\/gone-fishing-1600.jpg 1131w, \/artwork-optimized\/gone-fishing-2400.jpg 1272w",
+    "width" : 1272
+  },
+  "\/artworks\/little-explorer.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/little-explorer.jpg",
+    "galleryWidth" : 653,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/little-explorer-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/little-explorer-480.jpg 348w, \/artwork-optimized\/little-explorer-960.jpg 697w, \/artwork-optimized\/little-explorer-1600.jpg 1162w, \/artwork-optimized\/little-explorer-2400.jpg 1307w",
+    "width" : 1307
+  },
+  "\/artworks\/orange-thief-sketch.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/orange-thief-sketch.jpg",
+    "galleryWidth" : 673,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/orange-thief-sketch-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/orange-thief-sketch-480.jpg 359w, \/artwork-optimized\/orange-thief-sketch-960.jpg 718w, \/artwork-optimized\/orange-thief-sketch-1600.jpg 1197w, \/artwork-optimized\/orange-thief-sketch-2400.jpg 1347w",
+    "width" : 1347
+  },
+  "\/artworks\/orange-thief-value-study.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/orange-thief-value-study.jpg",
+    "galleryWidth" : 642,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/orange-thief-value-study-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/orange-thief-value-study-480.jpg 342w, \/artwork-optimized\/orange-thief-value-study-960.jpg 685w, \/artwork-optimized\/orange-thief-value-study-1600.jpg 1142w, \/artwork-optimized\/orange-thief-value-study-2400.jpg 1285w",
+    "width" : 1285
+  },
+  "\/artworks\/orange-thief.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/orange-thief.jpg",
+    "galleryWidth" : 642,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/orange-thief-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/orange-thief-480.jpg 342w, \/artwork-optimized\/orange-thief-960.jpg 685w, \/artwork-optimized\/orange-thief-1600.jpg 1142w, \/artwork-optimized\/orange-thief-2400.jpg 1285w",
+    "width" : 1285
+  },
+  "\/artworks\/portrait-in-olive.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/portrait-in-olive.jpg",
+    "galleryWidth" : 642,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/portrait-in-olive-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/portrait-in-olive-480.jpg 342w, \/artwork-optimized\/portrait-in-olive-960.jpg 685w, \/artwork-optimized\/portrait-in-olive-1600.jpg 1142w, \/artwork-optimized\/portrait-in-olive-2400.jpg 1285w",
+    "width" : 1285
+  },
+  "\/artworks\/song-for-my-cat.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/song-for-my-cat.jpg",
+    "galleryWidth" : 700,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/song-for-my-cat-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/song-for-my-cat-480.jpg 373w, \/artwork-optimized\/song-for-my-cat-960.jpg 747w, \/artwork-optimized\/song-for-my-cat-1600.jpg 1244w, \/artwork-optimized\/song-for-my-cat-2400.jpg 1400w",
+    "width" : 1400
+  },
+  "\/artworks\/spring-crush-sketch.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/spring-crush-sketch.jpg",
+    "galleryWidth" : 642,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/spring-crush-sketch-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/spring-crush-sketch-480.jpg 342w, \/artwork-optimized\/spring-crush-sketch-960.jpg 685w, \/artwork-optimized\/spring-crush-sketch-1600.jpg 1142w, \/artwork-optimized\/spring-crush-sketch-2400.jpg 1285w",
+    "width" : 1285
+  },
+  "\/artworks\/spring-crush.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/spring-crush.jpg",
+    "galleryWidth" : 642,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/spring-crush-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/spring-crush-480.jpg 342w, \/artwork-optimized\/spring-crush-960.jpg 685w, \/artwork-optimized\/spring-crush-1600.jpg 1142w, \/artwork-optimized\/spring-crush-2400.jpg 1285w",
+    "width" : 1285
+  },
+  "\/artworks\/street-style.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/street-style.jpg",
+    "galleryWidth" : 642,
+    "height" : 1800,
+    "src" : "\/artwork-optimized\/street-style-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/street-style-480.jpg 342w, \/artwork-optimized\/street-style-960.jpg 685w, \/artwork-optimized\/street-style-1600.jpg 1142w, \/artwork-optimized\/street-style-2400.jpg 1285w",
+    "width" : 1285
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423280.jpg" : {
+    "galleryHeight" : 650,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423280.jpg",
+    "galleryWidth" : 900,
+    "height" : 1733,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423280-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423280-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423280-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423280-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423280-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423340.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423340.jpg",
+    "galleryWidth" : 663,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423340-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423340-480.jpg 353w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423340-960.jpg 707w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423340-1600.jpg 1179w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423340-2400.jpg 1769w",
+    "width" : 1769
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423370.jpg" : {
+    "galleryHeight" : 673,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423370.jpg",
+    "galleryWidth" : 900,
+    "height" : 1795,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423370-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423370-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423370-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423370-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423370-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423400.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423400.jpg",
+    "galleryWidth" : 648,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423400-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423400-480.jpg 345w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423400-960.jpg 691w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423400-1600.jpg 1152w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423400-2400.jpg 1728w",
+    "width" : 1728
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423410.jpg" : {
+    "galleryHeight" : 628,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423410.jpg",
+    "galleryWidth" : 900,
+    "height" : 1673,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423410-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423410-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423410-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423410-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423410-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423430.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423430.jpg",
+    "galleryWidth" : 729,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423430-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423430-480.jpg 389w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423430-960.jpg 778w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423430-1600.jpg 1296w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423430-2400.jpg 1945w",
+    "width" : 1945
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423450.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423450.jpg",
+    "galleryWidth" : 624,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423450-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423450-480.jpg 333w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423450-960.jpg 666w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423450-1600.jpg 1110w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423450-2400.jpg 1664w",
+    "width" : 1664
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423490.jpg" : {
+    "galleryHeight" : 664,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423490.jpg",
+    "galleryWidth" : 900,
+    "height" : 1769,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423490-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423490-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423490-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423490-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423490-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423500.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423500.jpg",
+    "galleryWidth" : 632,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423500-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423500-480.jpg 337w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423500-960.jpg 674w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423500-1600.jpg 1124w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423500-2400.jpg 1686w",
+    "width" : 1686
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423510.jpg" : {
+    "galleryHeight" : 651,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423510.jpg",
+    "galleryWidth" : 900,
+    "height" : 1736,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423510-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423510-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423510-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423510-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423510-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423520.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423520.jpg",
+    "galleryWidth" : 654,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423520-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423520-480.jpg 349w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423520-960.jpg 697w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423520-1600.jpg 1162w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423520-2400.jpg 1744w",
+    "width" : 1744
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423521.jpg" : {
+    "galleryHeight" : 662,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423521.jpg",
+    "galleryWidth" : 900,
+    "height" : 1765,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423521-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423521-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423521-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423521-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423521-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423530.jpg" : {
+    "galleryHeight" : 900,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423530.jpg",
+    "galleryWidth" : 669,
+    "height" : 2400,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423530-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423530-480.jpg 357w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423530-960.jpg 713w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423530-1600.jpg 1189w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423530-2400.jpg 1783w",
+    "width" : 1783
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423560.jpg" : {
+    "galleryHeight" : 674,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423560.jpg",
+    "galleryWidth" : 900,
+    "height" : 1799,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423560-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423560-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423560-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423560-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423560-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423570.jpg" : {
+    "galleryHeight" : 664,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423570.jpg",
+    "galleryWidth" : 900,
+    "height" : 1772,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423570-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423570-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423570-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423570-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423570-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423571.jpg" : {
+    "galleryHeight" : 628,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423571.jpg",
+    "galleryWidth" : 900,
+    "height" : 1674,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423571-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423571-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423571-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423571-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423571-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423580.jpg" : {
+    "galleryHeight" : 628,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423580.jpg",
+    "galleryWidth" : 900,
+    "height" : 1675,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423580-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423580-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423580-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423580-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423580-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101423590.jpg" : {
+    "galleryHeight" : 611,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101423590.jpg",
+    "galleryWidth" : 900,
+    "height" : 1631,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423590-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423590-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423590-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423590-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101423590-2400.jpg 2400w",
+    "width" : 2400
+  },
+  "\/artworks\/Urban Sketchers\/SKM_C251i26101500000.jpg" : {
+    "galleryHeight" : 620,
+    "gallerySrc" : "\/artwork-gallery\/Urban%20Sketchers\/SKM_C251i26101500000.jpg",
+    "galleryWidth" : 900,
+    "height" : 1653,
+    "src" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101500000-2400.jpg",
+    "srcSet" : "\/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101500000-480.jpg 480w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101500000-960.jpg 960w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101500000-1600.jpg 1600w, \/artwork-optimized\/Urban%20Sketchers\/SKM_C251i26101500000-2400.jpg 2400w",
+    "width" : 2400
+  }
+}

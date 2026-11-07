@@ -9,7 +9,7 @@ A complete, production-ready website for **Karuna Artwork**, a freelance artist 
 - **Fully Responsive:** Mobile-first design that adapts beautifully to any screen size.
 - **Course Library:** A comprehensive class grid populated with a filtering system to quickly organize classes by age groups or types.
 - **Masonry Art Gallery:** A lightweight CSS masonry grid highlighting paintings, illustrations, and unique commissions, complete with an interactive lightbox.
-- **Authentication Preview:** Includes an elegant, switchable Sign In & Registration form integrated with community previews.
+- **Direct inquiries:** Contact, collaboration and class booking inquiries open WhatsApp with a prefilled message; the visitor confirms and sends it in WhatsApp.
 
 ## Tech Stack
 - Frontend Framework: **React**
@@ -37,6 +37,13 @@ To run the project locally, follow these steps:
    ```bash
    npm run dev
    ```
+
+## Artwork image workflow
+
+- Keep print-resolution originals in the local-only `artwork-originals/artworks/` folder. The original artist portrait belongs at `artwork-originals/artist_portrait.jpg`.
+- The originals folder is excluded from Git and Vercel. Do not force-add it; the public site should only contain generated previews for artwork.
+- After adding or replacing artwork originals, run `npm run optimize:images` on macOS. This generates 480px, 960px and 1600px watermarked JPEG previews in `public/artwork-optimized/` and refreshes `src/data/artwork-images.json`.
+- The small artist portrait is copied as-is without an artwork watermark. Generated artwork previews are the files included in the site deployment.
 
 ## License
 &copy; Karuna Artwork. All rights reserved.

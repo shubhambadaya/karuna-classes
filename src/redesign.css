@@ -58,6 +58,16 @@ body { background: var(--color-bg); color: var(--color-text); }
 .hero-sticker i { font: italic .67rem var(--font-heading); }
 .portfolio-section { max-width: 1440px; padding: clamp(4rem,8vw,8rem) clamp(1.25rem,7vw,7rem); margin: auto; }
 .featured-section { border-top: 1px solid var(--color-border); }
+.work-category-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: clamp(1rem,2vw,2rem); align-items: start; }
+.work-category-card { min-width: 0; color: inherit; text-decoration: none; }
+.work-category-image { overflow: hidden; background: #e6ece5; aspect-ratio: .78; }
+.work-category-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+.work-category-card:hover .work-category-image img,.work-category-card:focus-visible .work-category-image img { transform: scale(1.04); }
+.work-category-copy { padding-top: .9rem; }
+.work-category-number { color: #7a8178; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; }
+.work-category-copy h3 { margin: .45rem 0 .65rem; color: #26372e; font: 500 clamp(1rem,1.35vw,1.28rem)/1.3 var(--font-heading); }
+.work-category-link { display: inline-flex; align-items: center; gap: .45rem; color: var(--color-primary); font-size: .78rem; font-weight: 600; transition: gap .2s ease; }
+.work-category-card:hover .work-category-link { gap: .7rem; }
 .section-heading-row { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 2.8rem; }
 .section-heading-row h2,.artist-intro-copy h2,.learning-note h2,.portfolio-social h2,.about-page h2 { font-size: clamp(2.5rem,5vw,5rem); line-height: 1.06; font-weight: 500; letter-spacing: -.045em; }
 .section-heading-row .text-link { margin-bottom: .6rem; }
@@ -148,10 +158,10 @@ body { background: var(--color-bg); color: var(--color-text); }
 .gallery-controls { display: flex; gap: .65rem; flex-wrap: wrap; max-width: 1180px; margin: 0 auto 2rem; padding: 0 1.5rem; }
 .gallery-filter { border: 1px solid #cbd0c8; padding: .63rem .95rem; color: #627066; font: 500 .78rem var(--font-body); background: transparent; cursor: pointer; transition: .2s; }
 .gallery-filter:hover,.gallery-filter.active { border-color: #263b30; background: #263b30; color: #fffdf8; }
-.portfolio-masonry { columns: 3 270px; column-gap: 1.15rem; max-width: 1320px; margin: 0 auto; padding: 0 1.5rem 7rem; }
-.portfolio-artwork { display: inline-block; width: 100%; margin: 0 0 1.8rem; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: zoom-in; break-inside: avoid; }
-.artwork-image { position: relative; display: block; overflow: hidden; background: #e6ece5; }
-.artwork-image img { width: 100%; display: block; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+.portfolio-masonry { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.8rem 1.15rem; max-width: 1140px; margin: 0 auto; padding: 0 1.5rem 7rem; }
+.portfolio-artwork { display: block; width: 100%; margin: 0; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: zoom-in; }
+.artwork-image { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 3; background: #e6ece5; }
+.artwork-image img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
 .portfolio-artwork:hover .artwork-image img { transform: scale(1.035); }
 .artwork-open { position: absolute; bottom: 1rem; right: 1rem; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; background: #f7f4ed; color: #24382f; opacity: 0; transform: translateY(5px); transition: .2s; }
 .portfolio-artwork:hover .artwork-open,.portfolio-artwork:focus-visible .artwork-open { opacity: 1; transform: none; }
@@ -169,7 +179,7 @@ body { background: var(--color-bg); color: var(--color-text); }
 .lightbox-copy .eyebrow { color: #e8bb58; }
 .lightbox-medium { margin-top: 1.5rem; font-size: .8rem; }
 
-.classes-page,.contact-page,.lessons-page,.collaboration-page,.signin-page { background: var(--color-bg); color: var(--color-text); }
+.classes-page,.contact-page,.lessons-page,.collaboration-page { background: var(--color-bg); color: var(--color-text); }
 .page-header { padding: 4.8rem 0 3rem; background: #e5ebe3; text-align: center; }
 .page-header h1 { font-size: clamp(2.8rem,6vw,5rem); letter-spacing: -.04em; }
 .page-header p { margin-top: .8rem; color: #68736a; }
@@ -203,6 +213,7 @@ body { background: var(--color-bg); color: var(--color-text); }
   .portfolio-hero h1 { font-size: clamp(3.5rem,11vw,6rem); }
   .hero-note { margin-top: 2rem; }
   .portfolio-section { padding-inline: 1.5rem; }
+  .work-category-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 2rem 1rem; }
   .category-grid { grid-template-columns: repeat(2,1fr); gap: 2rem 1rem; }
   .instagram-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
   .artist-intro-copy { padding: 3rem; }
@@ -220,6 +231,7 @@ body { background: var(--color-bg); color: var(--color-text); }
   .instagram-actions a,.instagram-actions button { width: 100%; }
   .home-quote-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .featured-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .work-category-grid { grid-template-columns: 1fr; gap: 1.8rem; }
   .feature-tall { grid-row: auto; }
   .feature-tall .featured-image { height: auto; aspect-ratio: .82; }
   .feature-wide .featured-image,.feature-short .featured-image { height: auto; aspect-ratio: 1.15; }
@@ -239,8 +251,7 @@ body { background: var(--color-bg); color: var(--color-text); }
   .gallery-heading { padding-top: 4rem; }
   .gallery-controls { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .5rem; }
   .gallery-filter { white-space: nowrap; }
-  .portfolio-masonry { columns: 2 140px; column-gap: .8rem; padding-inline: .9rem; }
-  .portfolio-artwork { margin-bottom: 1.1rem; }
+  .portfolio-masonry { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem .8rem; padding-inline: .9rem; }
   .gallery-caption { display: grid; }
   .gallery-caption>small { display: none; }
   .artwork-lightbox { padding: 1rem; overflow-y: auto; }

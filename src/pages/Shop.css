@@ -1,0 +1,22 @@
+.shop-page { min-height: 70vh; padding-bottom: clamp(4rem, 8vw, 8rem); color: var(--color-text); }
+.shop-heading { max-width: 1180px; margin: auto; padding: clamp(4rem, 8vw, 8rem) 1.5rem 3.5rem; }
+.shop-heading h1 { font-size: clamp(3.2rem, 7vw, 7rem); line-height: .98; letter-spacing: -.055em; font-weight: 500; }
+.shop-heading h1 em { color: var(--color-primary); font-weight: 400; }
+.shop-heading > p:last-child { max-width: 38rem; margin-top: 1.25rem; color: #6f786f; line-height: 1.8; }
+.shop-heading .shop-store-link { display: inline-flex; align-items: center; gap: .5rem; margin-top: 1.15rem; color: #26382e; font-size: .85rem; font-weight: 600; }
+.shop-heading .shop-store-link:hover { color: var(--color-primary); }
+.shop-products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); align-items: stretch; gap: 1.5rem; max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+.shop-product-card { display: flex; flex-direction: column; width: min(100%, 370px); min-height: 270px; padding: 1.5rem; border: 1px solid #dedbd2; background: #fffefa; color: var(--color-text); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.shop-product-card:hover { transform: translateY(-4px); border-color: #c6bfb0; box-shadow: 0 16px 36px rgb(38 56 46 / 9%); }
+.shop-product-category { color: var(--color-primary); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; }
+.shop-product-card h2 { margin: 1.2rem 0 .7rem; font-family: var(--font-heading, Georgia, serif); font-size: 1.65rem; font-weight: 500; line-height: 1.15; }
+.shop-product-card > p { color: #6f786f; font-size: .9rem; line-height: 1.7; }
+.shop-product-footer { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: auto; padding-top: 1.5rem; }
+.shop-product-footer strong { font-size: 1.1rem; }
+.shop-product-footer > span { display: inline-flex; align-items: center; gap: .35rem; color: var(--color-primary); font-size: .8rem; font-weight: 600; }
+.shop-note { max-width: 1180px; margin: 2rem auto 0; padding: 0 1.5rem; color: #7b837a; font-size: .78rem; }
+@media (max-width: 700px) {
+  .shop-heading { padding-top: 3.5rem; }
+  .shop-products { grid-template-columns: 1fr; }
+  .shop-product-card { margin-inline: auto; }
+}

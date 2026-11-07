@@ -1,44 +1,31 @@
 import { useState } from 'react';
-import { MapPin, Phone, Clock, Send, CheckCircle } from 'lucide-react';
-import { submitLead } from '../utils/submitLead';
+import { MapPin, Phone, Send } from 'lucide-react';
+import { createWhatsAppUrl } from '../utils/whatsapp';
 import './Contact.css';
 
 const Contact = () => {
   const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitting(true);
     setError('');
-
-    const result = await submitLead({
-      name: formData.name,
-      phone: formData.phone,
-      email: formData.email,
-      interest: 'General Inquiry',
-      source: 'website',
-      message: formData.message,
-    });
-
-    setSubmitting(false);
-
-    if (result.success) {
-      setSubmitted(true);
-    } else {
-      setError('Something went wrong. Please try again or message us on WhatsApp.');
+    const message = [
+      'Hi Karuna, I have a question.',
+      `Name: ${formData.name}`,
+      `My WhatsApp number: ${formData.phone}`,
+      formData.email && `Email: ${formData.email}`,
+      `Message: ${formData.message}`,
+    ].filter(Boolean).join('\n');
+    const url = createWhatsAppUrl(message);
+    if (!url) {
+      setError('WhatsApp messaging is not configured yet. Please contact the site owner.');
+      return;
     }
-  };
-
-  const handleReset = () => {
-    setFormData({ name: '', phone: '', email: '', message: '' });
-    setSubmitted(false);
-    setError('');
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -58,14 +45,9 @@ const Contact = () => {
             <p>Jaipur, Rajasthan, India</p>
           </div>
           <div className="info-card">
-            <Clock className="info-icon" />
-            <h3>Timezone</h3>
-            <p>Mon – Sat: 10 AM – 7 PM IST<br />Sunday: Closed</p>
-          </div>
-          <div className="info-card">
             <Phone className="info-icon" />
             <h3>WhatsApp</h3>
-            <p>{whatsappNumber ? <a href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer">Message Karuna on WhatsApp</a> : 'Message us anytime'}<br />Usually replies within 24 hours.</p>
+            <p>{whatsappNumber ? <a href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer">Message Karuna on WhatsApp</a> : 'Message us anytime'}<br />Usually replies within an hour.</p>
           </div>
 
           <div className="social-connect">
@@ -78,15 +60,7 @@ const Contact = () => {
         </div>
 
         <div className="contact-form-wrapper glass-panel" data-component="src/pages/Contact.jsx (Form)">
-          {submitted ? (
-            <div className="contact-success">
-              <CheckCircle size={48} className="success-icon" />
-              <h2>Message Sent!</h2>
-              <p>Karuna will get back to you within 24 hours.</p>
-              <button className="btn btn-outline" onClick={handleReset}>Send another message</button>
-            </div>
-          ) : (
-            <>
+          <>
               <h2>Send a Message</h2>
               <form onSubmit={handleSubmit} className="contact-form">
                 <div className="form-group">
@@ -108,12 +82,12 @@ const Contact = () => {
 
                 {error && <p className="contact-error">{error}</p>}
 
-                <button type="submit" className="btn btn-primary btn-submit" disabled={submitting}>
-                  <Send size={18} /> {submitting ? 'Sending...' : 'Send Message'}
+                <button type="submit" className="btn btn-primary btn-submit">
+                  <Send size={18} /> Continue to WhatsApp
                 </button>
+                <p className="form-note">WhatsApp will open with your message ready to send.</p>
               </form>
-            </>
-          )}
+          </>
         </div>
       </div>
     </div>

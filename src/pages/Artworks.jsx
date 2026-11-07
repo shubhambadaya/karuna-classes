@@ -2,7 +2,18 @@ import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { X, ArrowUpRight } from 'lucide-react';
 import { supabase } from '../supabaseClient';
+import ResponsiveArtworkImage from '../components/ResponsiveArtworkImage';
 import './Artworks.css';
+
+const URBAN_SKETCH_FILES = [
+  'SKM_C251i26101423280.jpg', 'SKM_C251i26101423340.jpg', 'SKM_C251i26101423370.jpg',
+  'SKM_C251i26101423400.jpg', 'SKM_C251i26101423410.jpg', 'SKM_C251i26101423430.jpg',
+  'SKM_C251i26101423450.jpg', 'SKM_C251i26101423490.jpg', 'SKM_C251i26101423500.jpg',
+  'SKM_C251i26101423510.jpg', 'SKM_C251i26101423520.jpg', 'SKM_C251i26101423521.jpg',
+  'SKM_C251i26101423530.jpg', 'SKM_C251i26101423560.jpg', 'SKM_C251i26101423570.jpg',
+  'SKM_C251i26101423571.jpg', 'SKM_C251i26101423580.jpg', 'SKM_C251i26101423590.jpg',
+  'SKM_C251i26101500000.jpg',
+];
 
 const PORTFOLIO = [
   { id: 'firefly-path', title: 'The Firefly Path', category: 'Worlds & scenes', medium: 'Environment illustration', img: '/artworks/firefly-path.jpg', description: 'A small journey into a forest alive with fireflies.' },
@@ -20,6 +31,14 @@ const PORTFOLIO = [
   { id: 'spring-crush-sketch', title: 'Spring Crush: First Lines', category: 'Sketchbook', medium: 'Line sketch', img: '/artworks/spring-crush-sketch.jpg', description: 'The first loose sketch, finding the expression and glance between two characters.' },
   { id: 'orange-thief-sketch', title: 'Orange Thief: Gesture Studies', category: 'Sketchbook', medium: 'Gesture studies', img: '/artworks/orange-thief-sketch.jpg', description: 'Loose cat gesture drawings exploring pose and attitude.' },
   { id: 'orange-thief-value-study', title: 'Orange Thief: Value Study', category: 'Sketchbook', medium: 'Grayscale value study', img: '/artworks/orange-thief-value-study.jpg', description: 'A monochrome study to establish light and form before colour.' },
+  ...URBAN_SKETCH_FILES.map((file, index) => ({
+    id: `urban-sketch-${index + 1}`,
+    title: `Urban Sketch ${String(index + 1).padStart(2, '0')}`,
+    category: 'Urban Sketches',
+    medium: 'Urban sketch',
+    img: `/artworks/Urban%20Sketchers/${encodeURIComponent(file)}`,
+    description: 'A place and moment captured in Karuna Gupta’s urban sketchbook.',
+  })),
 ];
 
 const Artworks = () => {
@@ -60,12 +79,12 @@ const Artworks = () => {
     <header className="gallery-heading"><p className="eyebrow">A collection of stories & studies</p><h1>Pictures with<br /><em>something to say.</em></h1><p>Character, colour, quiet moments and imagined places. Browse selected illustration work and a glimpse into the process.</p></header>
     <div className="gallery-controls" aria-label="Filter artwork by category" role="group">{categories.map((category) => <button key={category} type="button" className={`gallery-filter ${activeTab === category ? 'active' : ''}`} aria-pressed={activeTab === category} onClick={() => setSearchParams(category === 'All' ? {} : { category })}>{category}</button>)}</div>
     <div className="portfolio-masonry" aria-live="polite">{filteredArts.map((art, index) => <button className="portfolio-artwork" key={art.id} type="button" onClick={() => setLightboxImg(art)} aria-label={`View ${art.title}`}>
-      <span className={`artwork-image artwork-image-${index % 5}`}><img src={art.img} alt={`${art.title}, ${art.medium} by Karuna Gupta`} loading={index < 4 ? 'eager' : 'lazy'} /><span className="artwork-open"><ArrowUpRight size={20} /></span></span>
+      <span className={`artwork-image artwork-image-${index % 5}`}><ResponsiveArtworkImage src={art.img} alt={`${art.title}, ${art.medium} by Karuna Gupta`} variant="gallery" loading={index < 4 ? 'eager' : 'lazy'} /><span className="artwork-open"><ArrowUpRight size={20} /></span></span>
       <span className="gallery-caption"><span><strong>{art.title}</strong><small>{art.medium}</small></span><small>{art.category}</small></span>
     </button>)}</div>
     {lightboxImg && <div className="artwork-lightbox" role="dialog" aria-modal="true" aria-label={`${lightboxImg.title} artwork`} onClick={() => setLightboxImg(null)}>
       <button className="lightbox-close" type="button" aria-label="Close artwork viewer" onClick={() => setLightboxImg(null)}><X size={25} /></button>
-      <div className="lightbox-artwork-content" onClick={(event) => event.stopPropagation()}><img src={lightboxImg.img} alt={`${lightboxImg.title}, ${lightboxImg.medium} by Karuna Gupta`} /><div className="lightbox-copy"><p className="eyebrow">{lightboxImg.category}</p><h2>{lightboxImg.title}</h2><p>{lightboxImg.description}</p><p className="lightbox-medium">{lightboxImg.medium}</p></div></div>
+      <div className="lightbox-artwork-content" onClick={(event) => event.stopPropagation()}><ResponsiveArtworkImage src={lightboxImg.img} alt={`${lightboxImg.title}, ${lightboxImg.medium} by Karuna Gupta`} sizes="(max-width: 620px) 95vw, 70vw" /><div className="lightbox-copy"><p className="eyebrow">{lightboxImg.category}</p><h2>{lightboxImg.title}</h2><p>{lightboxImg.description}</p><p className="lightbox-medium">{lightboxImg.medium}</p></div></div>
     </div>}
   </main>;
 };

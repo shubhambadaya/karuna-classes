@@ -15,12 +15,13 @@ const Footer = () => {
             <h3>Explore</h3>
             <Link to="/about">About</Link>
             <Link to="/artworks">Artwork</Link>
+            <Link to="/shop">Shop</Link>
             <Link to="/classes">Classes</Link>
           </div>
           <div className="footer-col">
             <h3>Connect</h3>
             <Link to="/contact">Contact</Link>
-            <Link to="/signin">Sign In</Link>
+            <a href={import.meta.env.VITE_WHATSAPP_NUMBER ? `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER.replace(/[^0-9]/g, '')}` : '/contact'} target={import.meta.env.VITE_WHATSAPP_NUMBER ? '_blank' : undefined} rel={import.meta.env.VITE_WHATSAPP_NUMBER ? 'noopener noreferrer' : undefined}>WhatsApp</a>
           </div>
           <div className="footer-col">
             <h3>Social</h3>
