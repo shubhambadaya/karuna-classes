@@ -20,11 +20,11 @@ function ScrollToTop() {
   useEffect(() => {
     window.scrollTo(0, 0);
     const pages = {
-      '/': ['Karuna Gupta — Illustrator & Visual Artist', 'Explore illustrations, character design, children’s book artwork and imagined worlds by Karuna Gupta, illustrator and visual artist in Jaipur, India.'],
-      '/about': ['About Karuna Gupta — Illustrator & Visual Artist', 'Meet Karuna Gupta, illustrator and visual artist. Read about her creative journey, artistic practice and teaching.'],
+      '/': ['Online Art Educator in Jaipur, India | Karuna Gupta', 'Karuna Gupta is an art educator and illustrator based in Jaipur, offering online art education, drawing, painting and illustration guidance to learners across India.'],
+      '/about': ['About Karuna Gupta — Art Educator & Illustrator', 'Meet Karuna Gupta, Jaipur-based art educator and illustrator. She has helped hundreds of learners worldwide develop illustration and watercolour skills through online lessons and one-to-one feedback.'],
       '/artworks': ['Artwork Gallery — Karuna Gupta', 'Browse character design, children’s illustration, picture-book covers, portraits and visual storytelling by Karuna Gupta.'],
       '/shop': ['Shop Artworks — Karuna Gupta', 'Browse digital artwork and creative downloads by Karuna Gupta.'],
-      '/classes': ['Art Classes — Karuna Gupta', 'Explore drawing, painting and illustration classes with Karuna Gupta for children and adults.'],
+      '/classes': ['Online Art Classes & One-to-One Feedback | Karuna Gupta', 'Learn illustration and watercolour painting online with Karuna Gupta, an art educator in Jaipur who has helped hundreds of learners worldwide, from children and beginners to advanced artists. Message her to ask questions and schedule a lesson.'],
       '/contact': ['Contact Karuna Gupta', 'Get in touch with Karuna Gupta about illustration projects, artwork, classes and workshops.'],
       '/lessons': ['Art Lessons — Karuna Gupta', 'Learn about Karuna Gupta’s teaching approach and student experiences.'],
       '/collaboration': ['Creative Collaboration — Karuna Gupta', 'Discuss illustration, visual development and custom artwork with Karuna Gupta.'],
@@ -33,6 +33,15 @@ function ScrollToTop() {
     document.title = title;
     const descriptionTag = document.querySelector('meta[name="description"]');
     if (descriptionTag) descriptionTag.setAttribute('content', description);
+    const canonicalUrl = `https://karunagupta.online${pathname === '/' ? '/' : pathname}`;
+    const canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (canonicalTag) canonicalTag.setAttribute('href', canonicalUrl);
+    const ogTitleTag = document.querySelector('meta[property="og:title"]');
+    if (ogTitleTag) ogTitleTag.setAttribute('content', title);
+    const ogDescriptionTag = document.querySelector('meta[property="og:description"]');
+    if (ogDescriptionTag) ogDescriptionTag.setAttribute('content', description);
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
+    if (ogUrlTag) ogUrlTag.setAttribute('content', canonicalUrl);
   }, [pathname]);
 
   return null;

@@ -24,9 +24,9 @@ function Home() {
     <div className="home-page portfolio-home">
       <section className="portfolio-hero">
         <div className="portfolio-hero-copy">
-          <p className="eyebrow">Illustrator & visual artist · Jaipur, India</p>
+          <p className="eyebrow">Art educator & illustrator · Jaipur, India</p>
           <h1>Stories made<br />to <em>stay with you.</em></h1>
-          <p className="hero-intro">I’m Karuna, an illustrator , artist & urban sketcher creating warm, character-led artwork for picture books, people and the places they imagine.</p>
+          <p className="hero-intro">I’m Karuna Gupta, an art educator, illustrator and urban sketcher in Jaipur. I’ve helped hundreds of learners—including children worldwide, beginners and advanced artists—grow their skills through online art lessons.</p>
           <div className="hero-actions">
             <Link to="/artworks" className="text-link">Explore the artwork <ArrowRight size={17} /></Link>
             <Link to="/about" className="text-link text-link-muted">Meet the artist <ArrowDownRight size={17} /></Link>
@@ -38,6 +38,17 @@ function Home() {
           <span className="art-caption"><b>Bath Time Buddies</b><span>Picture-book illustration · 2024</span></span>
           <span className="hero-sticker">A little<br />wonder<br /><i>in every story</i></span>
         </Link>
+      </section>
+
+      <section className="educator-intro portfolio-section" aria-labelledby="educator-heading">
+        <div>
+          <p className="eyebrow">Online art education · Jaipur, India</p>
+          <h2 id="educator-heading">Learn with an art educator who makes room for <em>your way of seeing.</em></h2>
+        </div>
+        <div className="educator-intro-copy">
+          <p>Karuna Gupta is an art educator and illustrator based in Jaipur, Rajasthan. She has helped hundreds of learners worldwide explore illustration and watercolour painting through online classes, from first steps to advanced practice. Lessons include one-to-one feedback to help students improve, and learners can message Karuna to ask questions and schedule a class.</p>
+          <Link to="/classes" className="text-link">Ask about online art guidance <ArrowRight size={17} /></Link>
+        </div>
       </section>
 
       <section className="portfolio-section featured-section">
@@ -68,7 +79,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="portfolio-social"><p className="eyebrow">Have a project in mind?</p><h2>Come say <em>hello.</em></h2><Link className="text-link" to="/contact">Get in touch <ArrowRight size={17} /></Link></section>
+      <section className="portfolio-social"><p className="eyebrow">Have a project in mind?</p><h2>Come say <em>hello.</em><br />Or better, share your artwork with me.</h2><Link className="text-link" to="/classes">Share your artwork <ArrowRight size={17} /></Link></section>
     </div>
   );
 }
